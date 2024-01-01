@@ -67,16 +67,17 @@ jobs:
       id-token: 'write'
 
     runs-on: ubuntu-latest
-    if: "contains(github.event.head_commit.message, 'to deploy')"
+    #if: "contains(github.event.head_commit.message, 'to deploy')"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Google Auth
         id: auth
-        uses: 'google-github-actions/auth@v0'
+        uses: 'google-github-actions/auth@v2'
         with:
-          token_format: 'access_token'
+          project_id: 'stoked-genius-391609'
+          #token_format: 'access_token'
           workload_identity_provider: '${{ secrets.WIF_PROVIDER }}' # e.g. - projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider
           service_account: '${{ secrets.WIF_SERVICE_ACCOUNT }}' # e.g. - my-service-account@my-project.iam.gserviceaccount.com
 
