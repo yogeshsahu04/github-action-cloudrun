@@ -1,5 +1,5 @@
-DockerFile
-README.md
+#DockerFile
+#README.md
 *.pyc
 *.pyo
 *.pyd
