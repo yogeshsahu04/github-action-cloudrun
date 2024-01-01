@@ -49,19 +49,25 @@ on:
     branches: [ "main" ]
 
 env:
-  PROJECT_ID: YOUR_PROJECT_ID # TODO: update Google Cloud project id
-  GAR_LOCATION: YOUR_GAR_LOCATION # TODO: update Artifact Registry location
-  SERVICE: YOUR_SERVICE_NAME # TODO: update Cloud Run service name
-  REGION: YOUR_SERVICE_REGION # TODO: update Cloud Run service region
+  PROJECT_ID: stoked-genius-391609 
+  # TODO: update Google Cloud project id
+  GAR_LOCATION: us-central1 
+  # TODO: update Artifact Registry location
+  SERVICE: github-action-cloud-run-test 
+  # TODO: update Cloud Run service name
+  REGION: us-central1 
+  # TODO: update Cloud Run service region
 
 jobs:
   deploy:
+    name: Deploy to Cloud Run
     # Add 'id-token' with the intended permissions for workload identity federation
     permissions:
       contents: 'read'
       id-token: 'write'
 
     runs-on: ubuntu-latest
+    if: "contains(github.event.head_commit.message, 'to deploy')"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
