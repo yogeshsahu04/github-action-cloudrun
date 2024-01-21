@@ -7,7 +7,7 @@
 # 3. Build a docker container
 # 4. Publish it to Google Artifact Registry
 # 5. Deploy it to Cloud Run
-#
+# 
 # To configure this workflow:
 #
 # 1. Ensure the required Google Cloud APIs are enabled:
